@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Dimension by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Welcome</h1>
+								<p>My name is Kevin Petersen and this is my project web page. I'm an aspiring IT Security Specialist and would like to take this opprotiniy to showcase my 
+									skillset in practical form. I have over a year of IT work experience but have been experimenting with programming, ethical hacking and computer building 
+									for three years. I'm CompTIA Security+, Network+ and A+ certified and continue to stay educated with new subject material.</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#xbox">Xbox DOS</a></li>
+								<li><a href="#starbucks">Rogue Coffee</a></li>
+								<li><a href="#military">Military Career</a></li>
+								<!--<li><a href="#contact">Contact</a></li>-->
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="xbox">
+								<center><h2 class="major">XBOX LIVE DOS ATTACK</h2></center>
+									<p><center>All I need is Kali Linux, a wireless adapter and a command prompt for the fun to begin.<br>
+										<img src="images/Kali Log In.JPG" ></center></p>
+									<p><center>Booting into Kali Linix and opening a command prompt I'll verify my wirless adapter is set to monitor mode. Running the command:<code>iwconfig</code> displays the adaptor settings which are correct.<br>
+										<img src="images/CMD Prompt Pic 1.JPG"></center></p>
+									<p><center>Next we want to scan the area to find our network. Running the command <code>airodump-ng</code> will do the trick. Just make sure to add your wireless adapter at  the end.<br>
+										<img src="images/Start.JPG"></center></p> 
+									<p><center>I'll look for my networks name and copy the BSSID and take note of the Channel (CH) number.<br>
+										<img src="images/Network Info.JPG"/></center></p>
+									<p><center>Next we'll run the following:
+										<li>Our program:<code>airodump-ng</code></li>
+										<li>Our networks BSSID:<code>--bssid XX:XX:XX:XX:XX:XX</code></li>
+										<li>The channel:<code>--channel X</code></li>
+										<li>Our adaptor:<code>wlan0</code></li>
+										<img src="images/Scan Network.JPG"></center></p>
+									<p><center>The results gives me a list of devices and with a little trial and error I'm able to obtain my roommates Xbox MAC address. The final key to the puzzle!<br>
+										<img src="images/XBOX MAC.JPG"></center></p>
+									<p><center>At last we'll run the final command. Lets break down what we need: 
+										<li>Main program:<code>aireplay-ng</code></li> 
+										<li>Attack command with frame count:<code>-0 xxx</code>
+										<li>Access point MAC:<code>-a xx:xx:xx:xx:xx:xx</code></li>
+										<li>Targets MAC:<code>-c xx:xx:xx:xx:xx:xx</code></li>
+										<li>Our adapter:<code>wlan0</code></li>
+										<p>Combined will look like this:
+										<img src="images/Deauth Before.JPG"></center></p>
+									<p><center>From here all you need do do is click Enter, sit back and wait for the choas!  <br>
+										<img src="images/Connection Lost.jpg"></center></p>
+									<p><center><b>DISCLAIMER</b><br>This was all done in good fun. No K/D ratio was harmed in the making!</center></p>
+								<p></p>
+								<p></p>
+							</article>
+
+						<!-- Work -->
+							<article id="starbucks">
+							<center><h2 class="major">Rogue Access Point</h2></center>
+							<p><center><b><font COLOR="red">PLEASE NOTE!</font></b></b><br>
+							This was done for experimental purposes only and was never used outside a controlled environment.</center></p>
+							<span class="image fit"><img src="" alt="" /></span>
+							<center><p>For this experiment I'll be using a WEMOS D1 Mini V4.0.0 IoT WiFi board that can be bought for as low as $1.60. I'll be building a captive portal that will mimic a nearby Starbucks, utilizing the blueprint provided by the code supplied <a href="https://github.com/adamff1/ESP8266_WiFi_Captive_Portal_2.0">here</a>.
+								I'll be at a slight disadvantage thanks to my device not being connected to any network or storage, so I'll have to create the interface without the help of icons and pictures.<br>
+								<img src="images/Device.jpg" height="250"></center></p>
+							<center><p>I'll be using Arduino IDE to compile the code and transfer it to the device.<br>
+							<img src="images/arduino.JPG"</p></center>
+							<center><p>Lets start with tricking the user into clicking on my WiFi by renaming my device to "Starbucks WiFi". The fake is the top and real is the bottom. Very deceiving at quick glance.<br>
+							<img src="images/FakeLogin.jpg" height="250"><img src="images/RealLogin.jpg" height="250"></center></p>
+							<center><p>Once connected the device will bring up a captive portal for first time connecters. Now sadly this is where I'm at a disadvantage and will require the user to be less suspicious and in dire need of WiFi. Even though mine on the left lacks the aesthetics, pictures and charm
+								as the legitimate on the right, someone less technically inclined could fall victim and submit their information without a second thought.<br>
+							<img src="images/MyStarbucks.jpg" height="570"> <img src="images/RealStarbucks.jpg" height="570"></center></p>
+							<center><p>Once a user types their information and presses Accept they'll be brought to a Validated screen which ultimately leads no where.<br>
+							<img src="images/LogIn.jpg" height="570"> <img src="images/Validated.jpg" height="570"></center></p>
+							<center><p>From there I've just stolen your credentials! An email and zip code might not compromise much, but a more sophisticated attack could gather passwords or account numbers. <br>
+							<img src="images/savedcreds.JPG" height="200"></center></p>
+							<center><p>This just goes to show how dangerous free public WiFi is. Whether its at a resturant, mall or airport, caution should always be taken. A $2 device and a novice hacker can create this, a veteran hacker with malicious intent can do a lot of damage.</p></center>
+							<center><p>My code in this demonstration is uplouded in my GitHub <a href="https://github.com/KevinNPetersen" class="icon brands fa-github"><span class="label">GitHub</span></a></p></center>
+							</article>
+
+						<!-- About -->
+							<article id="military">
+								<center><h2 class="major">Coast Guard Veteran</h2>
+								<img src="images/MilAwards.jpg" alt="" data-position="center center"/></center><br>
+								<p>Serving the Coast Guard from January 2012 - August 2021 was an honor and privilege. I was rewarded with a skill set and knowledge not many are able to obtain. I was a small boat engineer for 4 years and helicopter mechanic for 5 and throughout that journey I saved multiple lives which truly is the ultimate reward. 
+									I learned the value of teamwork along with being a leader. The mental stamina as well as overall mindset is what I'm excited to bring to the table for all future endeavors. </p>
+									<center><img src="images/Dog.JPG" alt="" data-position="center center"/></center>
+							</article>
+
+						<!-- Contact 
+						<article id="contact">
+							<p>Under construction</p>
+						</article> -->
+
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://github.com/KevinNPetersen" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://www.linkedin.com/in/kevin-petersen1/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
